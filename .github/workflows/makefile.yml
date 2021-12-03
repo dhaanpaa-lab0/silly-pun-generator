@@ -14,7 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Install dependencies
-      run: make packageuber
-      
-    
+
+    - name: Build native executable
+      uses: maxday/quarkus-native-build-docker-action@1
+      with:
+        outputName: sillypunserver-runner
+    - name: Upload native executable
+      uses: actions/upload-artifact@v1
+      with:
+        name: native-executable
+        path: sillypunserver-runner      
+
