@@ -18,11 +18,11 @@ jobs:
     - name: Build a Quarkus native application
       uses: maxday/quarkus-native-build-docker-action@1
       with:
-        outputName: sillypunserver-runner
+        outputName: silly-pun-generator-1.0.0-SNAPSHOT-native-image
         
     - name: Upload native executable
       uses: actions/upload-artifact@v1
       with:
         name: native-executable
-        path: sillypunserver-runner      
+        path: silly-pun-generator-1.0.0-SNAPSHOT-native-image      
 
