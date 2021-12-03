@@ -34,6 +34,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: staging/silly-pun-generator-*-runner.jar
-        tag: ${{ github.ref }}
+        tag: release-${{ github.sha }}
         overwrite: true
         file_glob: true
+        release_name: release-${{ github.sha }}
