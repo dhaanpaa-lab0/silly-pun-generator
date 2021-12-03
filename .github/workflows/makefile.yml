@@ -15,10 +15,11 @@ jobs:
     - uses: actions/checkout@v2
     
 
-    - name: Build native executable
-      uses: maxday/quarkus-native-build-docker-action@13bf5c4ae6942143cf43a5663a6c7f847ac3163c
+    - name: Build a Quarkus native application
+      uses: maxday/quarkus-native-build-docker-action@1
       with:
         outputName: sillypunserver-runner
+        
     - name: Upload native executable
       uses: actions/upload-artifact@v1
       with:
