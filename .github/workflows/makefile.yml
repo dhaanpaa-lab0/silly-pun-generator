@@ -8,7 +8,8 @@ on:
 
 jobs:
   build:
-
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     runs-on: ubuntu-latest
 
     steps:
@@ -28,3 +29,6 @@ jobs:
       with:
         name: Package
         path: staging
+    - uses: rymndhng/release-on-push-action@master
+      with:
+        bump_version_scheme: minor
