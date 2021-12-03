@@ -18,6 +18,7 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
+        cache: maven
 
     - name: build with maven
       run: mvn --batch-mode --update-snapshots verify
