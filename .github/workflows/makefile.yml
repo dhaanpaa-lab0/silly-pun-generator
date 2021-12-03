@@ -29,6 +29,11 @@ jobs:
       with:
         name: Package
         path: staging
-    - uses: rymndhng/release-on-push-action@master
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-        bump_version_scheme: minor
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: staging/silly-pun-generator-*-runner.jar
+        tag: ${{ github.ref }}
+        overwrite: true
+        file_glob: true
