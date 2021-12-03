@@ -20,5 +20,11 @@ jobs:
         distribution: 'adopt'
         cache: maven
 
-    - name: build with maven
-      run: mvn --batch-mode --update-snapshots verify
+    - name: build with maven (UberJaR)
+      run: make packageuber
+
+    - run: mkdir staging && cp -v target/silly-pun-generator-*-runner.jar staging
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Package
+        path: staging

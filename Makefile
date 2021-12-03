@@ -1,4 +1,6 @@
 all: dev
+clean:
+	./mvnw clean
 dev:
 	./mvnw compile quarkus:dev
 package:
