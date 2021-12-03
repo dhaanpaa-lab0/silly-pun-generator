@@ -3,9 +3,9 @@ clean:
 	./mvnw clean
 dev:
 	./mvnw compile quarkus:dev
-package:
+package: clean
 	./mvnw package
-packageuber:
+packageuber: clean
 	./mvnw package -Dquarkus.package.type=uber-jar
-packagenative:
+packagenative: clean
 	./mvnw package -Pnative
