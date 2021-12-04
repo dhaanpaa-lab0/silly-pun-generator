@@ -35,4 +35,4 @@ jobs:
         tag: release-${{ steps.runver.outputs.runver }}
         overwrite: true
         file_glob: true
-        release_name: release-${{ github.sha }}
+        release_name: release-${{ steps.runver.outputs.runver }}
