@@ -80,7 +80,7 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>${project.artifactId}-${version.number}</finalName>
+    <finalName>${project.artifactId}</finalName>
     <plugins>
       <plugin>
         <groupId>pl.project13.maven</groupId>

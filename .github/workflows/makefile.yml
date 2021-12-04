@@ -20,21 +20,19 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
         cache: maven
-
+    - name: get version number
+      id: runver
+      run: ech "::set-output name=runver::$(date +'%Y%m%d-%H%M%S')"
     - name: build with maven (UberJaR)
       run: make packageuber
 
-    - run: mkdir staging && cp -v target/silly-pun-generator-*-runner.jar staging
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Package
-        path: staging
+    - run: mkdir staging && cp -v target/silly-pun-generator-runner.jar staging/silly-pun-generator-server.jar
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: staging/silly-pun-generator-*-runner.jar
-        tag: release-${{ github.sha }}
+        tag: release-${{ steps.runver.outputs.runver }}
         overwrite: true
         file_glob: true
         release_name: release-${{ github.sha }}
