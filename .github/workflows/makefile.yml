@@ -22,7 +22,7 @@ jobs:
         cache: maven
     - name: get version number
       id: runver
-      run: ech "::set-output name=runver::$(date +'%Y%m%d-%H%M%S')"
+      run: echo "::set-output name=runver::$(date +'%Y%m%d-%H%M%S')"
     - name: build with maven (UberJaR)
       run: make packageuber
 
