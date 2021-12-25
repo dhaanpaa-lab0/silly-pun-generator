@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+kubectl cp $1 pg-client:$2
