@@ -10,3 +10,5 @@ spec:
       env:
       - name: ALLOW_EMPTY_PASSWORD
         value: "yes"
+      - name: POSTGRES_HOST_AUTH_METHOD
+        value: "trust"
