@@ -1,3 +1,3 @@
-select 1 as a;
+select 'Creating PUNS Database' as message;
 create database puns;
 

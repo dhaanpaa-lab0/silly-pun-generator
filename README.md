@@ -28,4 +28,6 @@ All of this assumes that you have a working kubernetes cluster that you can use 
 | scripts/dbclient-login | Opens psql for running against client pod |
 | scripts/dbclient-copy-files | Copy files to `pg-client` pod for usage in pod |
 | scripts/dbclient-create-dir | Creates directory in pod `pg-client` |
-| scripts/dbclient-remove | Deletes client |
+| scripts/dbclient-remove | Deletes client pod |
+| scripts/dbserver-install | Installs Database Server (Kubegres) |
+| scripts/dbserver-uninstall | Uninstalls Database Server (Kubegres) from cluster |
