@@ -1,7 +1,0 @@
-greeting:
-  message: "hello"
-quarkus:
-  datasource:
-    db-kind: postgresql
-    jdbc:
-      url: jdbc:postgresql://localhost:5432/dhaanpaa
