@@ -6,7 +6,7 @@ metadata:
 spec:
   containers:
     - image: postgres:14.1
-      name: postgresql
+      name: pg-client
       env:
       - name: ALLOW_EMPTY_PASSWORD
         value: "yes"
