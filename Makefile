@@ -1,4 +1,6 @@
 all: 
+reset:
+	kubectl delete -f https://raw.githubusercontent.com/reactive-tech/kubegres/v1.15/kubegres.yaml
 clean:
 	kubectl delete -f ./kubernetes/kubegres
 kubegresinstall:
