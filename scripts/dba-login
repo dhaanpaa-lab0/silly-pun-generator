@@ -1,0 +1,3 @@
+#!/usr/bin/envb
+SCR=$(kubectl get secret clu-psql-secret -o jsonpath="{.data.superUserPassword}" | base64 --decode)
+kubectl run postgres-client --rm --tty -i --restart='Never' --image postgres:11 --env="PGPASSWORD=$SCR" --command -- psql -h clu-psql -U postgres
