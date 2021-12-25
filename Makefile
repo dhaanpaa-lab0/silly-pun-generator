@@ -1,17 +1,9 @@
-all: dev
+all: 
 clean:
-	./mvnw clean
-dev:
-	./mvnw compile quarkus:dev
-package: clean
-	./mvnw package
-packageuber: clean
-	./mvnw package -Dquarkus.package.type=uber-jar
-packagenative: clean
-	./mvnw package -Pnative
+	kubectl delete -f ./kubernetes/kubegres
 kubegresinstall:
 	kubectl apply -f https://raw.githubusercontent.com/reactive-tech/kubegres/v1.15/kubegres.yaml
 kubegressetuplogin:
-	kubectl apply -f ./kubernetes/kubegres/postgres-login.yaml
+	./scripts/create-postgres-login
 kubegressetupdatabase: kubegressetuplogin
 	kubectl apply -f ./kubernetes/kubegres/postgres-db.yaml
