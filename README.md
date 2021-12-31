@@ -1,13 +1,18 @@
 
-# Kubernetes Database Setup
+# Kubernetes Database Setup for digital ocean kubernetes cluster
+## Challenge: `Setup a scalable postgres database cluster`
 
 ***Warning:*** This is probably very insecure by default
 
-All of this assumes that you have a working kubernetes cluster that you can use to experiments with this
+***Note:*** This assumes you have installed doctl cli from digitial ocean
+
+***Note:*** All of this assumes that you have a working kubernetes cluster that you can use to experiments with this
 
 ## Installation:
 
-1.Create Kubernetes cluster
+1.Create Kubernetes cluster in digital ocean
+
+1a.Run `make dokskubeconfig` to add your cluster to the 
 
 2.Run `make kubegresinstall` and then wait until pods are in ready state
 
@@ -31,3 +36,5 @@ All of this assumes that you have a working kubernetes cluster that you can use 
 | scripts/dbclient-remove | Deletes client pod |
 | scripts/dbserver-install | Installs Database Server (Kubegres) |
 | scripts/dbserver-uninstall | Uninstalls Database Server (Kubegres) from cluster |
+| scripts/doctl-get-kubeclusters | Get Currently Setup Digital Ocean Kube Clusters |
+| scripts/doctl-save-kubeconfig | Save Kubernetes Config from Digital Ocean Kube Cluster |
