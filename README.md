@@ -11,12 +11,42 @@
 ## Installation:
 
 1.Create Kubernetes cluster in digital ocean
+```
+ID                                      Name                                  Region    Version        Auto Upgrade    Status     Node Pools
+f8cb4655-e949-4b89-8d74-b3208e4a2437    k8s-1-21-5-do-0-nyc3-1640406587689    nyc3      1.21.5-do.0    false           running    pool-f0aep6r4q
+```
+1a.Run `make dokskubeconfig` to add your cluster to your local kubeconfig
 
-1a.Run `make dokskubeconfig` to add your cluster to the 
+Example Output:
+```
+./scripts/doctl-save-kubeconfig
+ID                                      Name                                  Region    Version        Auto Upgrade    Status     Node Pools
+f8cb4655-e949-4b89-8d74-b3208e4a2437    k8s-1-21-5-do-0-nyc3-1640406587689    nyc3      1.21.5-do.0    false           running    pool-f0aep6r4q
+Enter Kubernetes Cluster Id ... f8cb4655-e949-4b89-8d74-b3208e4a2437
+Notice: Adding cluster credentials to kubeconfig file found in "/home/denadmin/.kube/config"
+Notice: Setting current-context to do-nyc3-k8s-1-21-5-do-0-nyc3-1640406587689
+```
 
 2.Run `make kubegresinstall` and then wait until pods are in ready state
 
 3.Run `make kubegressetupdatabase` and then wait until pods are in ready state
+
+Example Output from steps 2-3:
+```
+NAME               READY   STATUS    RESTARTS   AGE
+pod/clu-psql-1-0   1/1     Running   0          6d
+pod/clu-psql-2-0   1/1     Running   0          6d
+pod/pg-client      1/1     Running   0          6d
+
+NAME                       TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)    AGE
+service/clu-psql           ClusterIP   None         <none>        5432/TCP   6d
+service/clu-psql-replica   ClusterIP   None         <none>        5432/TCP   6d
+service/kubernetes         ClusterIP   10.245.0.1   <none>        443/TCP    6d
+
+NAME                          READY   AGE
+statefulset.apps/clu-psql-1   1/1     6d
+statefulset.apps/clu-psql-2   1/1     6d
+```
 
 4.(optional) Run `make dbclientinstall` to create a pod for connecting to database
 
